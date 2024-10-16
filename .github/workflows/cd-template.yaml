@@ -45,7 +45,7 @@ jobs:
       - name: Terraform Plan for ${{ inputs.terraform_action == 'destroy' && 'Destroy' || 'Apply' }}
         run: |
           # shellcheck disable=SC2086
-          terraform plan -out=tfplan -input=false ${{ inputs.terraform_action == 'destroy' && '-destroy' || '' }}
+          terraform plan -var-file=development.tfvars -out=tfplan -input=false ${{ inputs.terraform_action == 'destroy' && '-destroy' || '' }}
 
       - name: Create Module Artifact
         run: |
