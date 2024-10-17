@@ -8,7 +8,7 @@ on:
 
 jobs:
   validate_and_plan:
-    uses: NGPhilO/alz-core-templates/.github/workflows/ci-template.yaml@main
+    uses: NGPhilO/alz-core/.github/workflows/ci-template.yaml@main
     name: 'CI'
     permissions:
       id-token: write
