@@ -33,10 +33,6 @@ jobs:
         uses: hashicorp/setup-terraform@v3
         with:
           terraform_wrapper: false
-          terraform_version: 1.9.7
-      
-      - name: Show Terraform Version
-        run: terraform --version
 
       - name: Terraform Init
         run: |
@@ -50,7 +46,7 @@ jobs:
         run: |
           # shellcheck disable=SC2086
           terraform plan -var-file=development.tfvars -out=tfplan -input=false ${{ inputs.terraform_action == 'destroy' && '-destroy' || '' }}
-
+       
       - name: Create Module Artifact
         run: |
           $stagingDirectory = "staging"
